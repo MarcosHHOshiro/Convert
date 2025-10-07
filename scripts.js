@@ -31,5 +31,9 @@ form.onsubmit = (event) => {
 
 //Função para converter a moeda
 function converCurrency(amount, price, symbol) {
-    console.log(amount, price, symbol);
+    try {
+
+    } catch (error) {
+
+    }
 }
