@@ -1,3 +1,8 @@
+//Cotação de moedas do dia
+const USD = 4.87
+const EUR = 5.32
+const GBP = 6.08
+
 const form = document.querySelector("form");
 const amount = document.getElementById("amount");
 const currency = document.getElementById("currency");
@@ -11,5 +16,20 @@ amount.addEventListener("input", () => {
 form.onsubmit = (event) => {
     event.preventDefault();
 
-    console.log(currency.value);
+    switch (currency.value) {
+        case "USD":
+            converCurrency(amount.value, USD, "US$")
+            break
+        case "EUR":
+            converCurrency(amount.value, EUR, "€")
+            break
+        case "USD":
+            converCurrency(amount.value, GBP, "£")
+            break
+    }
+}
+
+//Função para converter a moeda
+function converCurrency(amount, price, symbol) {
+    console.log(amount, price, symbol);
 }
