@@ -8,6 +8,7 @@ const amount = document.getElementById("amount");
 const currency = document.getElementById("currency");
 const footer = document.querySelector("main footer");
 const description = document.getElementById("description");
+const result = document.getElementById("result");
 
 amount.addEventListener("input", () => {
     const hasCharactersRegex = /\D+/g;
@@ -20,27 +21,30 @@ form.onsubmit = (event) => {
 
     switch (currency.value) {
         case "USD":
-            converCurrency(amount.value, USD, "US$")
-            break
+            converCurrency(amount.value, USD, "US$");
+            break;
         case "EUR":
-            converCurrency(amount.value, EUR, "€")
-            break
+            converCurrency(amount.value, EUR, "€");
+            break;
         case "USD":
-            converCurrency(amount.value, GBP, "£")
-            break
+            converCurrency(amount.value, GBP, "£");
+            break;
     }
 }
 
 //Função para converter a moeda
 function converCurrency(amount, price, symbol) {
     try {
-        description.textContent = `${symbol} 1 = ${formatCurrencyBRL(price)}`
+        description.textContent = `${symbol} 1 = ${formatCurrencyBRL(price)}`;
 
-        footer.classList.add("show-result")
+        let total = amount * price;
+        result.textContent = total;
+
+        footer.classList.add("show-result");
     } catch (error) {
         console.log(error);
-        footer.classList.remove("show-result")
-        alert("Não foi possível converter.")
+        footer.classList.remove("show-result");
+        alert("Não foi possível converter.");
     }
 }
 
@@ -48,5 +52,5 @@ function formatCurrencyBRL(value) {
     return Number(value).toLocaleString("pt-BR", {
         style: "currency",
         currency: "BRL"
-    })
+    });
 }
