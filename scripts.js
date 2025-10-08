@@ -26,7 +26,7 @@ form.onsubmit = (event) => {
         case "EUR":
             converCurrency(amount.value, EUR, "€");
             break;
-        case "USD":
+        case "GBP":
             converCurrency(amount.value, GBP, "£");
             break;
     }
