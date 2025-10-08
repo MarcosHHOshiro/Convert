@@ -37,8 +37,8 @@ function converCurrency(amount, price, symbol) {
     try {
         description.textContent = `${symbol} 1 = ${formatCurrencyBRL(price)}`;
 
-        let total = amount * price;
-        result.textContent = total;
+        let total = String(amount * price).replace(".", ",");
+        result.textContent = `${total} Reais`;
 
         footer.classList.add("show-result");
     } catch (error) {
